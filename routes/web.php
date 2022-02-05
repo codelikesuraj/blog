@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Category;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Illuminate\Support\Facades\Route;
 
@@ -16,13 +17,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    \Illuminate\Support\Facades\DB::listen(function ($query) {
+        logger($query->sql, $query->bindings);
+    });
+
     return view('posts', [
-        'posts'=> Post::all()
+        'posts'=> Post::with('category')->get()
     ]);
 });
 
-Route::get('posts/{id}', function ($id) {
+Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', [
-        'post' => Post::findOrFail($id)
+        'post' => $post
+    ]);
+});
+
+Route::get('categories', function () {
+    return view('categories', [
+        'categories' => Category::all()
+    ]);
+});
+
+Route::get('categories/{category:slug}',  function (Category $category) {
+    return view('category', [
+        'posts' => $category->posts,
+        'name' => $category->name,
     ]);
 });
