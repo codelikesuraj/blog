@@ -11,12 +11,15 @@ class Post extends Model
 
     protected $guarded = [];
 
-    public function category ()
+    public function category()
     {
-        // hasOne, hasMany, belongsTo, belongsToMany
-        // relationship between a post and a category
-        // a post is associated with one category
+        
         return $this->belongsTo(Category::class);
 
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

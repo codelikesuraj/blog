@@ -11,8 +11,12 @@
       </h1>
 
       <div>
-          {{ $post->excerpt }}
+          {!! $post->excerpt !!}
       </div>
+
+      <p>
+        <a href="/">Home</a> > <a href="/categories">Categories</a>
+      </p>
     </article>
    @endforeach
 @endsection

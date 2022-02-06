@@ -2,6 +2,7 @@
 
 @section('content')
 	<h1>Categories</h1>
+  
   <ul> 
   	@foreach ( $categories as $category )
   		<li>
@@ -11,4 +12,8 @@
   		</li>
   	@endforeach
   </ul>
+
+  <p>
+    <a href="/">Go Home</a>
+  </p>
 @endsection
