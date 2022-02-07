@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-  
+  <h1>{{ucfirst($name)}}</h1>
   @foreach ($posts as $post)
     <article>
       <h1>
