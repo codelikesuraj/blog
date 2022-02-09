@@ -1,7 +1,4 @@
-@extends('layout')
-
-@section('content')
-  <h1>{{ucfirst($name)}}</h1>
+<x-layout>
   @foreach ($posts as $post)
     <article>
       <h1>
@@ -19,4 +16,4 @@
       </p>
     </article>
    @endforeach
-@endsection
+</x-layout>
