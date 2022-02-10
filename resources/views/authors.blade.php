@@ -1,6 +1,6 @@
 <x-layout>
-	<h1>Categories</h1>
-  
+  @include('_post-header')
+	<h1>Authors</h1>
   <ul> 
   	@foreach ( $authors as $author )
   		<li>

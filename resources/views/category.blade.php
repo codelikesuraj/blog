@@ -1,5 +1,5 @@
 <x-layout>
-  
+  @include('_post-header')
   @foreach ($posts as $post)
     <article>
       <h1>
